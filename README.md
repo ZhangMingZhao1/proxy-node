@@ -9,5 +9,6 @@ module.exports = {
     host:"http://xx:port"
 }
 
-npm install
-node/nodemon app
+    npm install
+    
+    node/nodemon app
