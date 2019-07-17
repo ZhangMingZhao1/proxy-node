@@ -8,6 +8,8 @@ module.exports = {
     cookie:"",
     host:"http://xx:port"
 }
+cookie为后端返回的身份凭证，host为线上接口的环境比如"http://devapi.com",有端口要带端口号。
+本地的所有接口环境都要改成http://localhost:3101/proxy/你的api，注意多加一个proxy路径，转发是从proxy之后截取，实际给服务器发送的请求为 config中的host+你的api
 
     npm install
     
