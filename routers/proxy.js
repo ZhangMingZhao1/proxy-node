@@ -19,4 +19,14 @@ router.post('/proxy*', async(ctx,next)=>{
 
     ctx.body = data.data;
 })
+
+//get请求
+router.get('/proxy*', async(ctx,next)=>{
+    const search = url.parse(ctx.request.url).search;
+    console.log("请求地址为",`${config.host}${tarHost}${search}`)
+    const data = await axios.get(`${config.host}${tarHost}${search}`,params);
+    console.log("获取的数据为：", data.data);
+    console.log("Time:", new Date());
+    ctx.body = data.data;
+})
 module.exports = router; 
