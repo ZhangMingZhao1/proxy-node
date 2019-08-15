@@ -7,6 +7,7 @@ const url = require('url');
 const logger = log4js.getLogger();
 axios.defaults.headers.Cookie = config.cookie;
 
+//post请求，参数需要后端支持@requestBody，前端挂在post body里，具体值在params上
 router.post('/proxy*', async(ctx,next)=>{
     const tarHost =  ctx.params[0];
     const search = url.parse(ctx.request.url).search;
@@ -20,7 +21,7 @@ router.post('/proxy*', async(ctx,next)=>{
     ctx.body = data.data;
 })
 
-//get请求
+//get请求，参数是在url上，挂在了search变量上
 router.get('/proxy*', async(ctx,next)=>{
     const search = url.parse(ctx.request.url).search;
     console.log("请求地址为",`${config.host}${tarHost}${search}`)
