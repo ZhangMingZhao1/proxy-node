@@ -24,6 +24,7 @@ router.post('/proxy*', async(ctx,next)=>{
     }
     console.log("获取的数据为：", data.data);
     ctx.body = data.data;
+    //
 })
 
 //get请求，参数是在url上，挂在了search变量上
